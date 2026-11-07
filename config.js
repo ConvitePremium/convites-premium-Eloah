@@ -106,7 +106,7 @@ window.CONFIG = {
     textoFinal: "A festa começou!",
     corNumero: "#ffffff",
     corLegenda: "#ffffff",
-    posicao: { left:22.108582517971243, top:56.05523137213999, width:56.19169641074281, height:6.218642289127358 }
+    posicao: { left:12.293879792332264, top:54.09895456225932, width:75.61661653853834, height:10.131182739623343 }
   },
 
   // ----- MÚSICA DE FUNDO -------------------------------------------------

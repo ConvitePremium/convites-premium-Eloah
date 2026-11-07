@@ -78,8 +78,8 @@ window.CONFIG = {
   // mostrarTexto: true mostra “Voltar”; false deixa apenas a área clicável.
   // A posição pode ser alterada no editor ?editor=1.
   botoesVoltar: {
-    presentes: { mostrarTexto:false, posicao: {"left":36.00671550519169,"top":85.84983764929667,"width":28.792338508386578,"height":5.079395371810943} },
-    contagem: { mostrarTexto:false, posicao: {"left":35.393290734824284,"top":85.50460590666134,"width":29.405747678714057,"height":5.309555171188597} }
+    presentes: { mostrarTexto:false, posicao: {"left":23.329405451277957,"top":75.95340689772758,"width":52.715670552116606,"height":6.115061517589266} },
+    contagem: { mostrarTexto:false, posicao: {"left":25.169648562300324,"top":78.3699632498481,"width":49.444092576877,"height":5.194482130492143} }
   },
 
   // ----- POSIÇÃO DOS BOTÕES NA TELA PRINCIPAL ----------------------------
@@ -88,10 +88,10 @@ window.CONFIG = {
   //   left/top: canto superior esquerdo do botão
   //   width/height: tamanho do botão
     hotspots: {
-        confirm: { left:30.152552103435234, top:68.75141688824222, width:15.963051299960064, height:8.457313468111106 },
-        map: { left:54.5997314905745, top:68.40616244113869, width:15.816417584944034, height:8.522993865832865 },
-        gift: { left:30.268943427396323, top:80.82343586222751, width:15.68212110623003, height:8.758561567922982 },
-        countdown: { left:54.19227547112636, top:80.82344464173777, width:16.091060553115014, height:9.218853730708798 }
+        confirm: { left:23.609427353035873, top:56.66856324539954, width:18.212249457907348, height:10.873886830532713 },
+        map: { left:57.25786909540677, top:56.89868278128852, width:19.701404730511126, height:10.479266285958417 },
+        gift: { left:22.907908583147123, top:71.50237909365093, width:19.771577975239616, height:10.829902638989868 },
+        countdown: { left:56.44147362907364, top:71.3873104427096, width:20.1805174221246, height:10.944975679686323 }
   },
 
   // ----- CONTAGEM REGRESSIVA ---------------------------------------------
@@ -102,17 +102,17 @@ window.CONFIG = {
   // corLegenda altera a cor de Meses, Dias, Horas, Min e Seg.
   // Aceita hexadecimal, nome de cor ou rgb().
   contagem: {
-    dataEvento: "2026-10-17T14:00:00",
+    dataEvento: "2026-03-06T12:30:00",
     textoFinal: "A festa começou!",
     corNumero: "#ffffff",
     corLegenda: "#ffffff",
-    posicao: { left:21.495188947683705, top:57.20598372788013, width:56.19169641074281, height:6.218642289127358 }
+    posicao: { left:22.108582517971243, top:56.05523137213999, width:56.19169641074281, height:6.218642289127358 }
   },
 
   // ----- MÚSICA DE FUNDO -------------------------------------------------
   // volume: de 0 (mudo) a 1 (máximo). O padrão 0.30 é agradável e não
   //         briga com o áudio do vídeo.
   musica: {
-    volume: 0.30
+    volume: 0.60
   }
 };

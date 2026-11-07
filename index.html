@@ -20,16 +20,16 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Convite Eloah 1 aninho">
   <meta property="og:description" content="Clique para abrir o convite">
-  <meta property="og:url" content="https://convitepremium.github.io/convites-premium-Eloah/">
-  <meta property="og:image" content="https://convitepremium.github.io/convites-premium-Eloah/assets/preview-whatsapp.jpg">
-  <meta property="og:image:secure_url" content="https://convitepremium.github.io/convites-premium-Eloah/assets/preview-whatsapp.jpg">
+  <meta property="og:url" content="https://convitepremium.github.io/convites-premium-Maya-1/">
+  <meta property="og:image" content="https://convitepremium.github.io/convites-premium-Maya-1/assets/preview-whatsapp.jpg">
+  <meta property="og:image:secure_url" content="https://convitepremium.github.io/convites-premium-Maya-1/assets/preview-whatsapp.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Convite Eloah 1 aninho">
   <meta name="twitter:description" content="Clique para abrir o convite">
-  <meta name="twitter:image" content="https://convitepremium.github.io/convites-premium-Eloah/assets/preview-whatsapp.jpg">
+  <meta name="twitter:image" content="https://convitepremium.github.io/convites-premium-Maya-1/assets/preview-whatsapp.jpg">
   <!-- Fim do bloco de preview -->
 
   <link rel="preload" href="assets/opening.webp" as="image">
@@ -99,6 +99,25 @@
     .editor-drag-handle button{cursor:pointer;flex:0 0 auto;padding:6px 9px!important;font-size:12px}
     .editor-panel.dragging{opacity:.96;box-shadow:0 16px 42px #0008}
     body.editor-on .editor-panel{display:block}.editor-panel b{font-size:14px}.editor-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}.editor-panel button,.editor-panel select,.editor-panel input{border:1px solid #d5a8b7;border-radius:10px;padding:8px;background:#fff;color:#4b2634;font-weight:700}.editor-panel input{width:74px}.editor-panel textarea{width:100%;height:78px;margin-top:8px;border:1px solid #d5a8b7;border-radius:10px;padding:8px;font-size:12px}.editor-mini{opacity:.75;font-size:12px;margin-top:6px}.edit-open{display:none;position:fixed;right:12px;bottom:12px;z-index:45;border:0;border-radius:999px;padding:10px 13px;background:rgba(255,255,255,.88);color:#6b3a21;font-weight:800;box-shadow:0 4px 16px #0004}body.can-edit .edit-open{display:block}body.editor-on .edit-open{display:none}
+  
+/* Confirmação de presença: modal isolado do layout original */
+.rsvp-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(21,12,23,.72);backdrop-filter:blur(5px)}
+.rsvp-overlay.is-open{display:flex}
+.rsvp-card{width:min(100%,430px);max-height:min(90dvh,780px);overflow-y:auto;overscroll-behavior:contain;position:relative;padding:29px 22px 22px;border-radius:22px;border:1px solid #dfc4d3;background:linear-gradient(160deg,#fffdfc,#fff2f7);box-shadow:0 20px 75px #0006;color:#593d4b;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.rsvp-card h2{font-size:25px;margin:4px 32px 10px 0;line-height:1.25;color:#73485f}
+.rsvp-card p{font-size:14px;line-height:1.55;margin:0 0 18px;color:#745d69}
+.rsvp-close{position:absolute;right:15px;top:13px;width:36px;height:36px;border:0;border-radius:50%;background:#f5e4ec;color:#73485f;font-size:25px;cursor:pointer}
+.rsvp-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 20px}
+.rsvp-choice{border:1px solid #ddbbcd;background:#fff;color:#654257;padding:14px 8px;border-radius:13px;font-weight:700;font-size:13px;cursor:pointer;line-height:1.35}
+.rsvp-choice[aria-pressed="true"]{background:#84566d;color:white;border-color:#84566d}
+.rsvp-details[hidden],.rsvp-submit[hidden]{display:none!important}
+.rsvp-card label{display:block;font-size:13px;font-weight:700;margin:13px 0 6px}
+.rsvp-card select,.rsvp-card input{display:block;width:100%;min-height:43px;border:1px solid #d6b7c7;background:#fff;color:#48313d;border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;box-sizing:border-box}
+.rsvp-card input:focus,.rsvp-card select:focus{outline:2px solid #b985a0;outline-offset:1px}
+.rsvp-submit{width:100%;margin-top:22px;border:0;border-radius:13px;padding:15px 12px;background:#81516b;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+.rsvp-submit:disabled{opacity:.45;cursor:not-allowed}
+.rsvp-hint{margin:8px 0 0!important;text-align:center;font-size:12px!important}
+
   </style>
 </head>
 <body>
@@ -196,6 +215,29 @@
 
   <!-- config.js DEVE carregar antes da engine -->
   <script src="config.js"></script>
+
+  <div id="rsvpOverlay" class="rsvp-overlay" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-hidden="true">
+    <div class="rsvp-card">
+      <button type="button" id="rsvpClose" class="rsvp-close" aria-label="Fechar confirmação">×</button>
+      <h2 id="rsvpTitle">Confirmação de Presença 💖</h2>
+      <p>Sua presença tornará essa celebração ainda mais especial!</p>
+      <div class="rsvp-options" role="group" aria-label="Você poderá comparecer?">
+        <button type="button" class="rsvp-choice" id="rsvpYes" aria-pressed="false">🎉 Eu irei à festa!</button>
+        <button type="button" class="rsvp-choice" id="rsvpNo" aria-pressed="false">💗 Eu não poderei ir.</button>
+      </div>
+      <div id="rsvpDetails" class="rsvp-details" hidden>
+        <label for="rsvpCount">Olá! Quantas pessoas vão comparecer à festa?</label>
+        <select id="rsvpCount">
+          <option value="1">1 pessoa</option><option value="2">2 pessoas</option>
+          <option value="3">3 pessoas</option><option value="4">4 pessoas</option>
+          <option value="5">5 pessoas</option>
+        </select>
+        <div id="rsvpNames"></div>
+      </div>
+      <button type="button" id="rsvpSubmit" class="rsvp-submit" disabled>💌 Enviar confirmação pelo WhatsApp</button>
+      <p class="rsvp-hint">Você poderá conferir a mensagem antes de enviá-la.</p>
+    </div>
+  </div>
   <script>
     /* ========================================================================
        ENGINE V4 MODULAR — lê tudo de config.js. Não edite por convite.
@@ -541,14 +583,90 @@
         $("skipBtn").addEventListener("click", goMain);
       }
 
+
+      // RSVP: codificação UTF-8 com encodeURIComponent mantém acentos e emojis no WhatsApp.
+      const rsvpOverlay = document.getElementById("rsvpOverlay");
+      const rsvpYes = document.getElementById("rsvpYes");
+      const rsvpNo = document.getElementById("rsvpNo");
+      const rsvpCount = document.getElementById("rsvpCount");
+      const rsvpNames = document.getElementById("rsvpNames");
+      const rsvpDetails = document.getElementById("rsvpDetails");
+      const rsvpSubmit = document.getElementById("rsvpSubmit");
+      let rsvpAnswer = null;
+      let rsvpPreviousFocus = null;
+      function updateRsvpValid(){
+        const valid = rsvpAnswer === "nao" || (rsvpAnswer === "sim" &&
+          [...rsvpNames.querySelectorAll("input")].length === Number(rsvpCount.value) &&
+          [...rsvpNames.querySelectorAll("input")].every(input=>input.value.trim()));
+        rsvpSubmit.disabled = !valid;
+      }
+      function buildRsvpNames(){
+        const old = [...rsvpNames.querySelectorAll("input")].map(el=>el.value);
+        rsvpNames.replaceChildren();
+        for(let i=0;i<Number(rsvpCount.value);i++){
+          const label=document.createElement("label");
+          const input=document.createElement("input");
+          input.id="rsvpName"+i;
+          label.htmlFor=input.id;
+          label.textContent="Nome do convidado "+(i+1);
+          input.type="text";input.autocomplete="name";input.maxLength=100;
+          input.placeholder="Nome completo";input.value=old[i]||"";
+          input.addEventListener("input",updateRsvpValid);
+          rsvpNames.append(label,input);
+        }
+        updateRsvpValid();
+      }
+      function setRsvpAnswer(answer){
+        rsvpAnswer=answer;
+        rsvpYes.setAttribute("aria-pressed",String(answer==="sim"));
+        rsvpNo.setAttribute("aria-pressed",String(answer==="nao"));
+        rsvpDetails.hidden=answer!=="sim";
+        if(answer==="sim")buildRsvpNames();
+        updateRsvpValid();
+      }
+      function openRsvp(){
+        rsvpPreviousFocus=document.activeElement;
+        rsvpAnswer=null;rsvpCount.value="1";rsvpNames.replaceChildren();
+        rsvpYes.setAttribute("aria-pressed","false");
+        rsvpNo.setAttribute("aria-pressed","false");
+        rsvpDetails.hidden=true;rsvpSubmit.disabled=true;
+        rsvpOverlay.classList.add("is-open");
+        rsvpOverlay.setAttribute("aria-hidden","false");
+        rsvpYes.focus();
+      }
+      function closeRsvp(){
+        rsvpOverlay.classList.remove("is-open");
+        rsvpOverlay.setAttribute("aria-hidden","true");
+        if(rsvpPreviousFocus&&rsvpPreviousFocus.focus)rsvpPreviousFocus.focus();
+      }
+      rsvpYes.addEventListener("click",()=>setRsvpAnswer("sim"));
+      rsvpNo.addEventListener("click",()=>setRsvpAnswer("nao"));
+      rsvpCount.addEventListener("change",buildRsvpNames);
+      document.getElementById("rsvpClose").addEventListener("click",closeRsvp);
+      rsvpOverlay.addEventListener("click",e=>{if(e.target===rsvpOverlay)closeRsvp()});
+      document.addEventListener("keydown",e=>{if(e.key==="Escape"&&rsvpOverlay.classList.contains("is-open"))closeRsvp()});
+      rsvpSubmit.addEventListener("click",()=>{
+        updateRsvpValid();if(rsvpSubmit.disabled)return;
+        let message;
+        if(rsvpAnswer==="sim"){
+          const names=[...rsvpNames.querySelectorAll("input")].map(el=>el.value.trim());
+          message="Olá! 💖\n\nÉ com muita alegria que confirmamos nossa presença no aniversário da Eloah! 🎉✨\n\n*Estaremos presentes:*\n"+
+            names.map((name,i)=>(i+1)+". "+name).join("\n")+
+            "\n\nAgradecemos pelo convite e pelo carinho. Estamos ansiosos para compartilhar esse momento inesquecível com vocês! 🥰💕";
+        }else{
+          message="Olá! 💖\n\nAgradecemos de coração pelo convite e pelo carinho em nos incluir no aniversário da Eloah.\n\nInfelizmente, não poderemos comparecer à celebração, mas estaremos torcendo para que esse dia seja repleto de amor, alegria e momentos inesquecíveis! ✨💕\n\nDesejamos uma festa maravilhosa! 🥰";
+        }
+        const num=String(C.whatsapp.numero||"").replace(/\D/g,"");
+        const url="https://api.whatsapp.com/send?phone="+num+"&text="+encodeURIComponent(message);
+        window.open(url,"_blank","noopener,noreferrer");
+      });
+
       // ---- BOTÕES DA TELA PRINCIPAL --------------------------------------
       if(hasWhatsapp && $("confirmBtn")){
         $("confirmBtn").addEventListener("click", (e)=>{
           if(document.body.classList.contains("editor-on")) return;
           e.preventDefault(); e.stopPropagation();
-          const num = (C.whatsapp.numero || "").replace(/\D/g,"");
-          const msg = encodeURIComponent(C.whatsapp.mensagem || "");
-          window.open("https://wa.me/" + num + "?text=" + msg, "_blank");
+          openRsvp();
         });
       }
       if(hasMap && $("mapBtn")){
